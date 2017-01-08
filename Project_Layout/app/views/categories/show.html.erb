@@ -1,0 +1,70 @@
+
+  <%= render template: "shared/ads-top" %>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        
+        <%=render template: 'shared/aside-nav' %>
+        
+        <div class="col-sm-9 padding-right">
+          <div class="features_items"><!--liked food-->
+            <h2 class="title text-center"><%= @category.nameCategory %></h2>
+            <% @category.products.each do |pro| %> 
+              <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                      <div class="productinfo text-center">
+                        <%= image_tag pro.image_link %>
+                        <h2>$<%= pro.price %></h2>
+                        <p><%= pro.nameProduct %></p>
+                        <%= link_to pro, class: "btn btn-default add-to-cart" do %>
+                            <i class="fa fa-shopping-cart"></i>Add to cart
+                          <% end %>
+                      </div>
+                      <div class="product-overlay">
+                        <div class="overlay-content">
+                          <h2>$<%= pro.price %></h2>
+                          <p><%= pro.nameProduct %></p>
+                          <%= link_to pro, class: "btn btn-default add-to-cart" do %>
+                            <i class="fa fa-shopping-cart"></i>Add to cart
+                          <% end %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="choose">
+                    <ul class="nav nav-pills nav-justified">
+                      <li>
+                        <%= link_to like_product_path(pro), method: :put do %>
+                          <i class="fa fa-heart"></i> 
+                          <%= pro.get_upvotes.size %>
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to dislike_product_path(pro), method: :put do %>
+                          <i class="fa fa-thumbs-down"></i> 
+                          <%= pro.get_downvotes.size %>
+                        <% end %>
+                      </li>
+
+                      <!-- <li>
+                        <%= link_to like_product_path(pro), method: :put do %>
+                          <i class="fa fa-comment"></i> 
+                          <%= pro.get_upvotes.size %>
+                        <% end %>
+                      </li> -->
+                      
+                    </ul>
+                    <ul>
+                      <li><a href=""><i class=" fa fa-location-arrow"></i><%=  pro.address.first(25) %></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            
+            
+          </div><!--liked food-->
+      </div>
+    </div>
+  </section>

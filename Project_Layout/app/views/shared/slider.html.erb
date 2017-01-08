@@ -1,0 +1,48 @@
+<section id="slider"><!--slider-->
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+						<li data-target="#slider-carousel" data-slide-to="1"></li>
+						<li data-target="#slider-carousel" data-slide-to="2"></li>
+					</ol>
+					
+					<div class="carousel-inner">
+						<% i = 0 %>
+						<% @slider_products.each do |pro| %>
+							<% i = i + 1 %>
+							<div class="item  <% if (i == 1) then %> <%= 'active' %>  <% end %> ">
+								<div class="col-sm-6">
+									<h1><span>Food</span>-Lover</h1>
+									<h2><%= pro.nameProduct %></h2>
+									<p><%= pro.content %></p>
+									<%= link_to  pro, class: "btn btn-default get " do %>
+										Get it now
+									<% end %>
+								</div>
+								<div class="col-sm-6">
+									<%= image_tag pro.image_link , size: 320 %>
+									
+								</div>
+							</div>
+						<% end %>
+						
+					</div>
+					
+					<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+						<i class="fa fa-angle-left"></i>
+					</a>
+					<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<br>
+	</section><!--/slider-->

@@ -1,0 +1,9 @@
+diff a/SourceWeb/Project_Layout/config/routes.rb b/SourceWeb/Project_Layout/config/routes.rb	(rejected hunks)
+@@ -13,6 +13,7 @@
+ 
+   get 'page/contact'
+ 
++  devise_for :users, class_name: "FormUser", :controllers => { omniauth_callbacks: 'omniauth_callbacks' , registrations: 'registrations' }
+              
+ 
+   resources :products , concerns: :paginatable do

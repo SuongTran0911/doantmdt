@@ -1,0 +1,87 @@
+  <section>
+    <div class="container">
+      <div class="row">
+       
+        <%=render template: 'shared/aside-nav' %>
+        
+        <div class="col-sm-9 padding-right">
+          <div class="product-details"><!--product-details-->
+            <div class="col-sm-5">
+              <div class="view-product">
+                <%= image_tag @product.image_link.to_s %>
+                
+              </div>
+              <div id="similar-product" class="carousel slide" data-ride="carousel">
+                
+                  <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                    <div class="item active">
+                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                      <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+                      <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                    </div>
+                    
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left item-control" href="#similar-product" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                  </a>
+                  <a class="right item-control" href="#similar-product" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                  </a>
+              </div>
+
+            </div>
+            <div class="col-sm-7">
+              <div class="product-information"><!--/product-information-->
+                <h2><%= @product.nameProduct %></h2>
+                <span>
+                  <span>$ <%= @product.price %></span>
+                  <%= link_to line_items_path(:id => @product), :method => :post, class: "btn btn-default cart" do %>
+														<i class="fa fa-shopping-cart"></i> Add to cart
+													<% end %>
+                </span>
+                
+                <div  id="reviews" class="row" >
+                  <div class="col-md-12">
+                    <ul>
+                      <li><a href=""><i class="fa fa-user"></i><%= @product.user.email %></a></li>
+                      <li><a href=""><i class="fa fa-clock-o"></i><%= @product.created_at.to_s("%B %d, %Y") %></a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+
+                <p><b>Address:</b> <%= @product.address %></p>
+                <p><b>Description:</b><%= @product.content %> </p>
+
+                
+                
+              </div><!--/product-information-->
+            </div>
+          </div><!--/product-details-->
+          
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
